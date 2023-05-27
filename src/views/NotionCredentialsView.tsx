@@ -2,7 +2,11 @@ import { useState } from "react";
 import { Button } from "../Button";
 import { Input } from "../Input";
 
-export const NotionCredentialsView = () => {
+interface IProps {
+  onContinueClick: (apiKey: string, dbId: string) => void;
+}
+
+export const NotionCredentialsView = (props: IProps) => {
   const [apiKey, setApiKey] = useState("");
   const [dbId, setDbId] = useState("");
 
@@ -31,7 +35,7 @@ export const NotionCredentialsView = () => {
         />
         <Button
           onClick={() => {
-            console.log("todo");
+            props.onContinueClick(apiKey, dbId);
           }}
         >
           Continue
